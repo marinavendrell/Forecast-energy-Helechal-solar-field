@@ -635,7 +635,9 @@ def preprocesamiento_datos(fecha_hora_actual, dataset_irrad_energia, dataset_pol
 
     ###
     ## Dataset OpenWeatherMap
-    dataset_openweathermap['date'] = dataset_openweathermap.apply(lambda x: datetime.fromtimestamp(x['dt']), axis = 1 )
+    dataset_openweathermap['date'] = pd.to_datetime(dataset_openweathermap.dt, unit='s')
+    dataset_openweathermap['date'] = dataset_openweathermap['date'].dt.tz_localize('UTC').dt.tz_convert('Europe/Madrid')  #Aplicar cambio horario
+    #dataset_openweathermap['date'] = dataset_openweathermap.apply(lambda x: datetime.fromtimestamp(x['dt']), axis = 1 )
     #dataset_openweathermap = dataset_openweathermap.drop(columns = ['dt','dt_iso','timezone','city_name','lat','lon'])  #Quitar vbles que no interesan
     dataset_openweathermap = dataset_openweathermap.drop(columns = ['dt'])  #Quitar vbles que no interesan
     dataset_openweathermap = dataset_openweathermap.set_index(['date'])
@@ -646,7 +648,9 @@ def preprocesamiento_datos(fecha_hora_actual, dataset_irrad_energia, dataset_pol
 
     ###
     ## Dataset futuro OpenWeatherMap
-    dataset_futuro_openweathermap['date'] = dataset_futuro_openweathermap.apply(lambda x: datetime.fromtimestamp(x['dt']), axis = 1 )
+    dataset_futuro_openweathermap['date'] = pd.to_datetime(dataset_futuro_openweathermap.dt, unit='s')
+    dataset_futuro_openweathermap['date'] = dataset_futuro_openweathermap['date'].dt.tz_localize('UTC').dt.tz_convert('Europe/Madrid')  #Aplicar cambio horario
+    #dataset_futuro_openweathermap['date'] = dataset_futuro_openweathermap.apply(lambda x: datetime.fromtimestamp(x['dt']), axis = 1 )
     #dataset_futuro_openweathermap = dataset_futuro_openweathermap.drop(columns = ['dt','dt_iso','timezone','city_name','lat','lon'])  #Quitar vbles que no interesan
     dataset_futuro_openweathermap = dataset_futuro_openweathermap.drop(columns = ['dt'])  #Quitar vbles que no interesan
     dataset_futuro_openweathermap = dataset_futuro_openweathermap.set_index(['date'])
