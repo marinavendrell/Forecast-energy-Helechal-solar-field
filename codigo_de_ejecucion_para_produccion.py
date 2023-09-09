@@ -143,6 +143,7 @@ def conexion_openweathermap_pasado(fecha_hora_actual,fecha_24_horas_antes):
     url = []
     for i in range(dt, df_final + 1, 3600):
         url_1 = f"https://api.openweathermap.org/data/3.0/onecall/timemachine?lat=38.6628444&lon=-5.391886111111112&dt={i}&appid=47286e5de5a37110bf78eb9cd72a25c3&units=metric"
+        print(url_1)
         url.append(url_1)
 
     querystring = {"api_key": api_key}
