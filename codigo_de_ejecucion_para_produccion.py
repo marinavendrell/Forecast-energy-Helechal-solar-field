@@ -168,6 +168,7 @@ def conexion_openweathermap_pasado(fecha_hora_actual,fecha_24_horas_antes):
         #df_1['fecha'] = pd.to_datetime(df_1['dt'], unit = 's', utc=True).tz_convert('Europe/Madrid')
         df_1['fecha'] = pd.to_datetime(df_1['dt'], unit='s')
         df_1['fecha'] = df_1['fecha'].dt.tz_localize('UTC').dt.tz_convert('Europe/Madrid')  #Aplicar cambio horario
+        df_1['fecha'] = pd.to_datetime(df_1['fecha']).dt.tz_localize(None) #Quitar componente cambio horario
         df_1['mes'] = df_1['fecha'].dt.month
         df_1['dia'] = df_1['fecha'].dt.day
         df_1['hora'] = df_1['fecha'].dt.hour
@@ -626,6 +627,7 @@ def preprocesamiento_datos(fecha_hora_actual, dataset_irrad_energia, dataset_pol
     ## Dataset OpenWeatherMap
     dataset_openweathermap['date'] = pd.to_datetime(dataset_openweathermap.dt, unit='s')
     dataset_openweathermap['date'] = dataset_openweathermap['date'].dt.tz_localize('UTC').dt.tz_convert('Europe/Madrid')  #Aplicar cambio horario
+    dataset_openweathermap['date'] = pd.to_datetime(dataset_openweathermap['date']).dt.tz_localize(None) #Quitar componente cambio horario
     st.dataframe(dataset_openweathermap)
     #dataset_openweathermap['date'] = dataset_openweathermap.apply(lambda x: datetime.fromtimestamp(x['dt']), axis = 1 )
     #dataset_openweathermap = dataset_openweathermap.drop(columns = ['dt','dt_iso','timezone','city_name','lat','lon'])  #Quitar vbles que no interesan
@@ -640,6 +642,7 @@ def preprocesamiento_datos(fecha_hora_actual, dataset_irrad_energia, dataset_pol
     ## Dataset futuro OpenWeatherMap
     dataset_futuro_openweathermap['date'] = pd.to_datetime(dataset_futuro_openweathermap.dt, unit='s')
     dataset_futuro_openweathermap['date'] = dataset_futuro_openweathermap['date'].dt.tz_localize('UTC').dt.tz_convert('Europe/Madrid')  #Aplicar cambio horario
+    dataset_futuro_openweathermap['date'] = pd.to_datetime(dataset_futuro_openweathermap['date']).dt.tz_localize(None) #Quitar componente cambio horario
     #dataset_futuro_openweathermap['date'] = dataset_futuro_openweathermap.apply(lambda x: datetime.fromtimestamp(x['dt']), axis = 1 )
     #dataset_futuro_openweathermap = dataset_futuro_openweathermap.drop(columns = ['dt','dt_iso','timezone','city_name','lat','lon'])  #Quitar vbles que no interesan
     dataset_futuro_openweathermap = dataset_futuro_openweathermap.drop(columns = ['dt'])  #Quitar vbles que no interesan
