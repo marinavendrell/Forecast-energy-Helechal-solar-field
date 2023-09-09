@@ -148,7 +148,6 @@ def conexion_openweathermap_pasado(fecha_hora_actual,fecha_24_horas_antes):
     url = []
     for i in range(dt, df_final + 1, 3600):
         url_1 = f"https://api.openweathermap.org/data/3.0/onecall/timemachine?lat=38.6628444&lon=-5.391886111111112&dt={i}&appid={api_key}&units=metric"
-        print(url_1)
         url.append(url_1)
 
     querystring = {"api_key": api_key}
@@ -161,6 +160,20 @@ def conexion_openweathermap_pasado(fecha_hora_actual,fecha_24_horas_antes):
         content_1 = response_1.json()
         lista.append(content_1)
 
+
+    # Verifica si la solicitud fue exitosa
+    if response_1.status_code == 200:
+        # Convierte la respuesta JSON en un diccionario (si es una respuesta JSON)
+        data = response_1.json()
+    
+        # Muestra la respuesta en la interfaz de Streamlit
+        st.write("Respuesta de la API:")
+        st.json(data)  # Esto muestra la respuesta en formato JSON
+    else:
+    st.write(f"Error en la solicitud: {response.status_code}")
+
+
+    ####
     response_1.status_code == requests.codes.ok
     content_1 = response_1.json()
 
