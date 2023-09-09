@@ -51,7 +51,7 @@ with st.sidebar:
 
     
     # INPUTS
-    dataset_carga_planta = st.file_uploader('Upload the excel docuemnt with the data from the solar field')
+    dataset_carga_planta = st.file_uploader('Upload the excel document with the data from the solar field')
     
     
     #Calculamos la fecha y hora actuales y 24h previas. Esta será la hora de Madrid, España
