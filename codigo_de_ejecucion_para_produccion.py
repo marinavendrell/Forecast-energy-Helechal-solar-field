@@ -170,7 +170,7 @@ def conexion_openweathermap_pasado(fecha_hora_actual,fecha_24_horas_antes):
         st.write("Respuesta de la API:")
         st.json(data)  # Esto muestra la respuesta en formato JSON
     else:
-    st.write(f"Error en la solicitud: {response.status_code}")
+        st.write(f"Error en la solicitud: {response.status_code}")
 
 
     ####
