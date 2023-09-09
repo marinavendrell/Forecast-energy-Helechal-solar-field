@@ -42,8 +42,12 @@ warnings.filterwarnings("ignore")
 import streamlit as st
 
 ### Authentication
-headers = {"authorization": st.secrets["api_key"], "content-type":"application/json"}
+# Accede a la API key desde los secretos de Streamlit
 api_key = st.secrets["api_key"]
+
+# Define las cabeceras para la solicitud HTTP
+headers = {"Authorization": api_key}
+
 
 ### Conexión Open-Meteo para 7 días vista de precipitación -> Servirá para la previsión de limpiezas
 def conexion_open_meteo(fecha_hora_actual):
@@ -151,7 +155,8 @@ def conexion_openweathermap_pasado(fecha_hora_actual,fecha_24_horas_antes):
     lista = []
 
     for x in range(0,len(url),1):
-        response_1 = requests.get(url[x], params=querystring, verify=False)
+        # Realiza una solicitud HTTP utilizando la API key
+        response_1 = requests.get(url[x], params=querystring, verify=False, headers=headers)
         response_1.status_code == requests.codes.ok
         content_1 = response_1.json()
         lista.append(content_1)
