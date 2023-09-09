@@ -1246,7 +1246,7 @@ else:
     st.write('This is an application to **predict the production of energy of a solar field 24 hours in advance**. It is easy and simple to use and allows users to import historical data from a solar field from the previous 24 hours and obtain the solar energy production forecast for the next 24 hours.')
     st.write('It has the potential to optimise the management and planning of power generation in solar fields, helping the company to maximise its operational efficiency and reduce costs.')
     st.write('The application contains an artificial intelligence model designed exclusively for the **Helechal solar field (ES)**.  Therefore, the information uploaded and the predictions will be made only for this field.')
-    st.write(f"To proceed, please upload the files in the left sidebar. These must contain the solar field information detailed from **{fecha_24_horas_antes.strftime('%d-%m-%Y at %Hh')}** to **{fecha_hora_actual.strftime('%d-%m-%Y at %Hh')}**, all period included otherwise the application will not work.")
+    st.write(f"To proceed, please upload the excel file in the left sidebar. These must contain the solar field information detailed from **{fecha_24_horas_antes.strftime('%d-%m-%Y at %Hh')}** to **{fecha_hora_actual.strftime('%d-%m-%Y at %Hh')}**, all period included otherwise the application will not work.")
     st.write('The variables required by the user to run the model are the following:')
     st.markdown("<b><em>Irradiation_average</b></em>, <b><em>Power by Inverter</b></em>, <b><em>Ambient Temperature</b></em>, <b><em>Module Temperature</b></em>, <b><em>Soiling Loss Sensor 1</b></em> and <b><em>Soiling Loss Sensor 2</b></em> ", unsafe_allow_html=True)
     
