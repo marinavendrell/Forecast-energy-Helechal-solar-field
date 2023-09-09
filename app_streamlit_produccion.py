@@ -1250,7 +1250,7 @@ else:
     st.write('The variables required by the user to upload and therefore to run the model are the following:')
     st.markdown("<b><em>Irradiation_average</b></em>, <b><em>Power by Inverter</b></em>, <b><em>Ambient Temperature</b></em>, <b><em>Module Temperature</b></em>, <b><em>Soiling Loss Sensor 1</b></em> and <b><em>Soiling Loss Sensor 2</b></em> ", unsafe_allow_html=True)
     
-    st.write('* Please note that due to the fact that this is a demo application, weather data is accessed via a free account. The forecast can only be calculated approximately 35 times per day. If access is required more than this, the account will be blocked and the application will not work. In the future, a premium account will probably be created to avoid this effect.')
+    st.write('* Please note that due to the fact that this is a demo application, weather data is accessed via a free account. The forecast can only be calculated approximately 35 times per day. If further attempts are tried to execute, the account will be blocked and the application will not work. In the future, a premium account will probably be created to avoid this issue.')
 
   
     #parrafos = [ "Irradiation_average", "Power by Inverter",  "Ambient Temperature", "Module Temperature", "Soiling Loss Sensor 1", "Soiling Loss Sensor 2"]
