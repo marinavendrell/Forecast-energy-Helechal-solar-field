@@ -188,7 +188,7 @@ def conexion_openweathermap_pasado(fecha_hora_actual,fecha_24_horas_antes):
         df_1['dia'] = df_1.apply(lambda x: datetime.fromtimestamp(x['dt']).strftime('%d'), axis = 1 )
         df_1['hora'] = df_1.apply(lambda x: datetime.fromtimestamp(x['dt']).strftime('%H'), axis = 1 )
         df = pd.concat([df, df_1], axis = 'index')
-
+        st.dataframe(df)
 
     ###Corrección de nombres manual
     df.rename(columns = {'id':'weather_id', 'main':'weather_main', 'description':'weather_description', 'icon':'weather_icon'}, inplace=True)
