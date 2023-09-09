@@ -52,7 +52,7 @@ headers = {"Authorization": api_key}
 ### Conexión Open-Meteo para 7 días vista de precipitación -> Servirá para la previsión de limpiezas
 def conexion_open_meteo(fecha_hora_actual):
     
-    url = 'https://api.open-meteo.com/v1/forecast?latitude=38.6628444&longitude=-5.391886111111112&hourly=precipitation_probability,cloudcover&timezone=Europe%2FBerlin'
+    url = f"https://api.open-meteo.com/v1/forecast?latitude=38.6628444&longitude=-5.391886111111112&hourly=precipitation_probability,cloudcover&timezone=Europe%2FBerlin"
     
     response = requests.get(url)
     
@@ -86,11 +86,8 @@ def conexion_open_meteo(fecha_hora_actual):
 ### Conexión OpenWeatherMap con datos a futuro
 def conexion_openweathermap_futuro():
 
-    #Api_key personal
-    #api_key = '47286e5de5a37110bf78eb9cd72a25c3'
-
     #Zona geográfica:la nava
-    url = 'https://api.openweathermap.org/data/3.0/onecall?lat=38.6628444&lon=-5.391886111111112&exclude=current,minutely,alerts&appid=47286e5de5a37110bf78eb9cd72a25c3&units=metric'
+    url = f"https://api.openweathermap.org/data/3.0/onecall?lat=38.6628444&lon=-5.391886111111112&exclude=current,minutely,alerts&appid={api_key}&units=metric"
     querystring = {"api_key": api_key}
     response = requests.get(url, params=querystring, verify=False)
 
@@ -116,8 +113,6 @@ def conexion_openweathermap_futuro():
 
 ### Conexión OpenWeatherMap con datos a pasado
 def conexion_openweathermap_pasado(fecha_hora_actual,fecha_24_horas_antes):
-
-    #api_key = '47286e5de5a37110bf78eb9cd72a25c3'
 
     #Calculamos la fecha y hora actuales y 24h previas. Esta será la hora de Madrid, España
     
