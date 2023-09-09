@@ -40,8 +40,9 @@ import warnings
 warnings.filterwarnings("ignore")
 
 import streamlit as st
-headers = {"authorization": st.secrets["api_key"]}
 
+### Authentication
+headers = {"authorization": st.secrets["api_key"], "content-type":"application/json"}
 
 
 ### Conexión Open-Meteo para 7 días vista de precipitación -> Servirá para la previsión de limpiezas
