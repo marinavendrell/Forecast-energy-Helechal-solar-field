@@ -43,7 +43,7 @@ import streamlit as st
 
 ### Authentication
 headers = {"authorization": st.secrets["api_key"], "content-type":"application/json"}
-
+api_key = st.secrets["api_key"]
 
 ### Conexión Open-Meteo para 7 días vista de precipitación -> Servirá para la previsión de limpiezas
 def conexion_open_meteo(fecha_hora_actual):
