@@ -178,7 +178,9 @@ def conexion_openweathermap_pasado(fecha_hora_actual,fecha_24_horas_antes):
         objeto_1 = [df_1, pd.DataFrame(df_1['weather'].tolist()).iloc[:, :4]]
         df_1 = pd.concat(objeto_1, axis=1)
         df_1 = pd.concat([df_1.drop([0,'weather'], axis=1), df_1[0].apply(pd.Series)], axis=1)
-        df_1['fecha'] = pd.to_datetime(df_1['dt'], unit = 's', utc=True).tz_convert('Europe/Madrid')
+        #df_1['fecha'] = pd.to_datetime(df_1['dt'], unit = 's', utc=True).tz_convert('Europe/Madrid')
+        df_1['fecha'] = pd.to_datetime(df_1['dt'], unit='s')
+        df_1['fecha'] = df_1['fecha'].dt.tz_localize('UTC').dt.tz_convert('Europe/Madrid')  #Aplicar cambio horario
         df_1['mes'] = df_1['fecha'].dt.month
         df_1['dia'] = df_1['fecha'].dt.day
         df_1['hora'] = df_1['fecha'].dt.hour
