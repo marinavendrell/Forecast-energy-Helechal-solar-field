@@ -1252,7 +1252,10 @@ else:
     
     st.write('* Please note that due to the fact that this is a demo application, weather data is accessed via a free account. The forecast can only be calculated approximately 40 times per day. If access is required more than this, the account will be blocked and the application will not work. In the future, a premium account will probably be created to avoid this effect.')
 
-    
+    st.write(f"{fecha_hora_actual} y {fecha_24_horas_antes})
+
+
+  
     #parrafos = [ "Irradiation_average", "Power by Inverter",  "Ambient Temperature", "Module Temperature", "Soiling Loss Sensor 1", "Soiling Loss Sensor 2"]
 
     # Mostrar los párrafos con puntos al principio
