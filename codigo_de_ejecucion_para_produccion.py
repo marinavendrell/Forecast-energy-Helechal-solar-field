@@ -179,8 +179,7 @@ def conexion_openweathermap_pasado(fecha_hora_actual,fecha_24_horas_antes):
         #df_1['hora'] = df_1.apply(lambda x: datetime.fromtimestamp(x['dt']).strftime('%H'), axis = 1 )
         df = pd.concat([df, df_1], axis = 'index')
     
-    st.dataframe(df)
-
+    
     ###Corrección de nombres manual
     df.rename(columns = {'id':'weather_id', 'main':'weather_main', 'description':'weather_description', 'icon':'weather_icon'}, inplace=True)
 
@@ -570,7 +569,6 @@ def preprocesamiento_datos(fecha_hora_actual, dataset_irrad_energia, dataset_pol
     # Generar el rango de fechas a pasado con el intervalo deseado (por ejemplo, cada hora)
     rango_fechas_pasado = pd.date_range(start= fecha_24_horas_antes + timedelta(hours=1), end= fecha_hora_actual, freq='H')
     
-    st.write(rango_fechas_pasado)
     ####
 
     ####
@@ -628,7 +626,6 @@ def preprocesamiento_datos(fecha_hora_actual, dataset_irrad_energia, dataset_pol
     dataset_openweathermap['date'] = pd.to_datetime(dataset_openweathermap.dt, unit='s')
     dataset_openweathermap['date'] = dataset_openweathermap['date'].dt.tz_localize('UTC').dt.tz_convert('Europe/Madrid')  #Aplicar cambio horario
     dataset_openweathermap['date'] = pd.to_datetime(dataset_openweathermap['date']).dt.tz_localize(None) #Quitar componente cambio horario
-    st.dataframe(dataset_openweathermap)
     #dataset_openweathermap['date'] = dataset_openweathermap.apply(lambda x: datetime.fromtimestamp(x['dt']), axis = 1 )
     #dataset_openweathermap = dataset_openweathermap.drop(columns = ['dt','dt_iso','timezone','city_name','lat','lon'])  #Quitar vbles que no interesan
     dataset_openweathermap = dataset_openweathermap.drop(columns = ['dt'])  #Quitar vbles que no interesan
