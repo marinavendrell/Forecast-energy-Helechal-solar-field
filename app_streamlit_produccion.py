@@ -863,7 +863,7 @@ if st.sidebar.button('CALCULATE FORECAST'):   # Solamente se ejecuta cuando el u
         with col2.container():
 
             col2.metric("Name", 'Helechal (ES)')
-            col2.metric("No. of solar panels", 7392)    
+            col2.metric("Total number of PV modules", 7392)    
             col2.metric("Plant area fenced", " 25858 m\u00b2", )
 
 
