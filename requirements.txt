@@ -12,6 +12,7 @@ pytz==2022.7
 Requests==2.31.0
 scikit_learn==1.2.2
 seaborn==0.12.2
+streamlit==1.24.0
 streamlit_echarts==0.4.0
 streamlit_extras==0.3.2
 streamlit_folium==0.12.0
